@@ -6,32 +6,48 @@
     <meta charset="UTF-8"/>
     <title>Tasks Scheduler</title>
     <link rel="stylesheet" href="{% static 'css/style.css' %}"/>
+    <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@500;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
-    <h1>My Tasks</h1>
     <main>
+        <h1>Tasks</h1>
         {% if tasks %}
 
             {% if tasks|length == 1 %}
-                <h2>You have 1 task:</h2>
-                <h3>{{ task.0.name }}</h3>
-                <p>{{ task.0.description }}</p>
-
+                <h2>You have only 1 task:</h2>
             {% else %}
-                <ul>
-                    {% for task in tasks %}
-                        <li>
-                            <h3>{{ task.name }}</h3>
-                            <p>{{ task.description }}</p>
-                        </li>
-                    {% endfor %}
-                </ul>
+                <h2>You have total {{ tasks|length }} tasks:</h2>
             {% endif %}
-        {% else %}
-            <p>No tasks available!</p>
+            <ul>
+                {% for task in tasks %}
+                <li>
+                    <form method="post" action="{% url 'complete_task' %}">
+                        {% csrf_token %}
+                        <input type="hidden" name="task_id" value="{{ task.id }}">
+                            <h3>{{ task.name }}</h3>
+                            <p class="description">{{ task.description }}</p>
+                            <p class="is_completed">Completed: {{ task.is_completed }}</p>
+                            {% if task.is_completed %}
+                                <button class="no-button"></button>
+                            {% else %}
+                                <button class="complete_task" type="submit">Complete Task</button>
+                            {% endif %}
+                    </form>
+                    <form method="post" action="{% url 'delete_task' %}">
+                        {% csrf_token %}
+                        <input type="hidden" name="task_id" value="{{ task.id }}">
+                        <button class="delete_task" type="submit">Delete Task</button>
+                    </form>
+                </li>
+                {% endfor %}
+            </ul>
 
+        {% else %}
+            <p class="no-tasks">No tasks available!</p>
         {% endif %}
+
+        <a href="{% url 'create_task' %}">Add New Task</a>
     </main>
 
 </body>

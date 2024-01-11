@@ -1,0 +1,124 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #d6d6ff;
+}
+
+main {
+    margin: 100px auto;
+    width: 1000px;
+    font-family: 'Red Hat Display';
+}
+
+#new-task-form fieldset {
+    border-radius: 10px;
+    padding: 10px 20px;
+}
+
+#new-task-form fieldset button {
+    padding: 5px 10px;
+    border-radius: 7px
+}
+
+h1 {
+    border-radius: 20px 20px 0 0;
+}
+
+h1, h2 {
+    text-align: center;
+    margin: 0;
+    padding: 20px 0;
+}
+
+form {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+ul {
+    margin: 0;
+    padding: 30px;
+    border-radius: 0 0 20px 20px;
+}
+
+ul, h1, h2, .no-tasks {
+    background-color: rgba(256,256,256,0.6);
+}
+
+.no-tasks {
+    text-align: center;
+    margin: 0;
+    padding: 20px;
+    font-size: 40px;
+    border-radius: 0 0 20px 20px;
+}
+
+h3 {
+    width: 130px;
+}
+
+.description {
+    width: 400px;
+}
+
+.is_completed {
+    width: 130px;
+}
+
+li {
+    list-style-type: none;
+}
+
+
+.complete_task, #new-task-form fieldset button {
+    background-color: hsl(245, 75%, 52%);
+    color: hsl(256, 100%, 100%);
+    border: none;
+}
+
+.no-button {
+    border: none;
+    padding: 0;
+    margin-left: 134px;
+
+}
+
+.delete_task {
+    background-color: #ae4d4d;
+    color: hsl(256, 100%, 100%);
+    font-weight: 700;
+    border: none;
+}
+
+a, .complete_task, .delete_task {
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 700;
+
+}
+
+a {
+    display: block;
+    text-decoration: none ;
+    margin: 30px auto 0;
+    width: 106px;
+    background-color: hsla(245, 75%, 105%, 0.6);
+    color: hsl(20, 10%, 10%);
+}
+
+a:hover, .complete_task:hover {
+    padding: 9px 19px;
+    color: hsl(0, 0%, 0%);
+    background-color: #dbdbff;
+    border: #000066 1px solid;
+    cursor: pointer;
+}
+
+.delete_task:hover {
+    padding: 9px 19px;
+    color: hsl(0, 0%, 0%);
+    background-color: #ffe6e6;
+    border: #800000 1px solid;
+    cursor: pointer;
+}
