@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8"/>
+    <title>Tasks Scheduler</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}"/>
+</head>
+
+<body>
+    <h1>My Tasks</h1>
+    <main>
+        {% if tasks %}
+
+            {% if tasks|length == 1 %}
+                <h2>You have 1 task:</h2>
+                <h3>{{ task.0.name }}</h3>
+                <p>{{ task.0.description }}</p>
+
+            {% else %}
+                <ul>
+                    {% for task in tasks %}
+                        <li>
+                            <h3>{{ task.name }}</h3>
+                            <p>{{ task.description }}</p>
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        {% else %}
+            <p>No tasks available!</p>
+
+        {% endif %}
+    </main>
+
+</body>
+</html>
