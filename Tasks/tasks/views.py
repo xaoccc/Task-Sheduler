@@ -48,25 +48,6 @@ def index(request):
     return render(request, 'index.html', context)
 
 
-def create_task(request):
-
-    if request.method == "GET":
-        form = CreateTaskForm()
-
-    else:
-        form = CreateTaskForm(request.POST)
-        if form.is_valid():
-            name = form.cleaned_data["name"]
-            description = form.cleaned_data["description"]
-            Task.objects.create(name=name, description=description, is_completed=False)
-            return redirect('index')
-
-    context = {
-        'form': form
-    }
-
-    return render(request, 'index.html', context)
-
 def delete_task(request):
     if request.method == 'POST':
         task_id = request.POST.get('task_id')

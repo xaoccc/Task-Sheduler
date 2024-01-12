@@ -42,7 +42,6 @@
                     <button>Filter</button>
                 </form>
 
-
             <ul>
                 {% for task in tasks %}
                 <li>
@@ -76,7 +75,7 @@
             <a href="{% url 'index' %}">Home</a>
         </div>
 
-        <form id="new-task-form" method="POST" action="{% url 'create_task' %}">
+        <form id="new-task-form" method="POST" action="{% url 'index' %}">
             <fieldset>
                 {% csrf_token %}
                 {{ form }}
