@@ -36,13 +36,24 @@ form {
     justify-content: space-between;
 }
 
+#completed-label {
+    position: relative;
+    left: 50px;
+}
+
+.filter-form {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
 ul {
     margin: 0;
     padding: 30px;
     border-radius: 0 0 20px 20px;
 }
 
-ul, h1, h2, .no-tasks {
+ul, h1, h2, .no-tasks, .filter-form {
     background-color: rgba(256,256,256,0.6);
 }
 
@@ -77,6 +88,15 @@ li {
     border: none;
 }
 
+.filter-form button {
+    background-color: hsl(260, 42%, 66%);
+    color: hsl(256, 100%, 100%);
+    border: none;
+    padding: 6px 20px;
+    border-radius: 8px;
+    margin-top: 10px;
+}
+
 .no-button {
     border: none;
     padding: 0;
@@ -91,23 +111,32 @@ li {
     border: none;
 }
 
-a, .complete_task, .delete_task {
+a, #new_task, .complete_task, .delete_task {
     padding: 10px 20px;
     border-radius: 8px;
     font-weight: 700;
-
+    text-align: center;
 }
 
-a {
-    display: block;
+a, #new_task {
+    display: inline-block;
     text-decoration: none ;
     margin: 30px auto 0;
-    width: 106px;
     background-color: hsla(245, 75%, 105%, 0.6);
     color: hsl(20, 10%, 10%);
+    border: none;
 }
 
-a:hover, .complete_task:hover {
+#bottom-links {
+    display: flex;
+}
+
+#new-task-form {
+    display: none;
+    margin-top: 30px;
+}
+
+a:hover, #new_task:hover, .complete_task:hover {
     padding: 9px 19px;
     color: hsl(0, 0%, 0%);
     background-color: #dbdbff;

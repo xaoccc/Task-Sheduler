@@ -7,6 +7,7 @@
     <title>Tasks Scheduler</title>
     <link rel="stylesheet" href="{% static 'css/style.css' %}"/>
     <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@500;700&display=swap" rel="stylesheet">
+    <script src="{% static 'javascript/script.js' %}"></script>
 </head>
 
 <body>
@@ -19,6 +20,29 @@
             {% else %}
                 <h2>You have total {{ tasks|length }} tasks:</h2>
             {% endif %}
+                <form class="filter-form" action="/" method="get">
+                    <input
+                            type="text"
+                            name="title_filter"
+                            value="{{ title_filter }}"
+                            placeholder="Enter task name"
+                    />
+                    <input
+                            type="text"
+                            name="contents_filter"
+                            value="{{ contents_filter }}"
+                            placeholder="Enter task description"
+                    />
+                    <label id="completed-label" for="completed">Is it completed?</label>
+                        <select id="completed" name="completed_filter">
+                          <option value="Select"></option>
+                          <option value="Yes">Yes</option>
+                          <option value="No">No</option>
+                        </select>
+                    <button>Filter</button>
+                </form>
+
+
             <ul>
                 {% for task in tasks %}
                 <li>
@@ -47,7 +71,18 @@
             <p class="no-tasks">No tasks available!</p>
         {% endif %}
 
-        <a href="{% url 'create_task' %}">Add New Task</a>
+        <div id="bottom-links">
+            <button id="new_task">Add New Task</button>
+            <a href="{% url 'index' %}">Home</a>
+        </div>
+
+        <form id="new-task-form" method="POST" action="{% url 'create_task' %}">
+            <fieldset>
+                {% csrf_token %}
+                {{ form }}
+                <button type="submit">Create New Task</button>
+            </fieldset>
+        </form>
     </main>
 
 </body>
