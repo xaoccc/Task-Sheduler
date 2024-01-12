@@ -18,7 +18,7 @@
             {% if tasks|length == 1 %}
                 <h2>You have only 1 task:</h2>
             {% else %}
-                <h2>You have total {{ tasks|length }} tasks:</h2>
+                <h2>You have {{ tasks|length }} tasks:</h2>
             {% endif %}
                 <form class="filter-form" action="/" method="get">
                     <input

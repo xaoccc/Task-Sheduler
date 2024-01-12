@@ -144,6 +144,14 @@ a:hover, #new_task:hover, .complete_task:hover {
     cursor: pointer;
 }
 
+.filter-form > button:hover {
+    padding: 5px 19px;
+    color: hsl(0, 0%, 0%);
+    background-color: #dbdbff;
+    border: #000066 1px solid;
+    cursor: pointer;
+}
+
 .delete_task:hover {
     padding: 9px 19px;
     color: hsl(0, 0%, 0%);
