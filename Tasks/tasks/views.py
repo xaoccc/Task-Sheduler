@@ -37,12 +37,15 @@ def index(request):
             Task.objects.create(name=name, description=description, is_completed=False)
             return redirect('index')
 
+    request_data = request.__dict__
+
     context = {
         'tasks': all_tasks,
         'title_filter': title_filter,
         'contents_filter': contents_filter,
         'completed_filter': completed_filter,
-        'form': form
+        'form': form,
+        'request_data': request_data
     }
 
     return render(request, 'index.html', context)

@@ -159,3 +159,7 @@ a:hover, #new_task:hover, .complete_task:hover {
     border: #800000 1px solid;
     cursor: pointer;
 }
+
+section {
+    display: none;
+}
